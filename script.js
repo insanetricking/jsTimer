@@ -166,7 +166,7 @@ addCart.addEventListener('click', function(){
     
    receiptOut.innerHTML= `Вы купили: \n ${totalName} \n Каллорийность ${totalKcall} \n Стоимость ${totalPrice}` ;
     
-})
+});
 
    
 
@@ -176,7 +176,6 @@ const lvlTimer = document.querySelector('.header__timer-extra');
 function startLvlTimer(){
     if(lvlTimer.innerHTML < 50){
         lvlTimer.innerHTML++;
-        console.log(lvlTimer.innerHTML);
         setTimeout( startLvlTimer, 300);
     } else if(lvlTimer.innerHTML >= 50 && lvlTimer.innerHTML < 100 ){
         lvlTimer.innerHTML++;
@@ -186,3 +185,34 @@ function startLvlTimer(){
 }
 
 startLvlTimer();
+
+
+
+const viewBlocks = document.querySelectorAll('.main__product-info'),
+
+       viewOpen = document.querySelector('.view'),
+       viewClose = document.querySelector('.view__close'),
+       viewImg = viewOpen.querySelector('img');
+
+
+ for(let viewBlock of viewBlocks) {
+    
+
+    viewBlock.addEventListener('dblclick', function open(){
+        
+        let blockImg = this.querySelector('img');
+
+
+        viewOpen.classList.add('active');
+        let src = blockImg.getAttribute('src');
+        
+        viewImg.setAttribute('src', `${src}`);
+
+    })
+
+}
+
+
+viewClose.addEventListener('click', function(){
+    viewOpen.classList.remove('active');
+})
