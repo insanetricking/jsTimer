@@ -164,18 +164,23 @@ addCart.addEventListener('click', function(){
         
     }
 
-   disableScrolling();
+    document.querySelector('body').style.overflow = 'hidden';
+
+    document.body.addEventListener('touchmove', function(e){ e.preventDefault(); }); document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
+
+
+//    disableScrolling();
     
    receiptOut.innerHTML= `Вы купили: \n ${totalName} \n Каллорийность ${totalKcall} \n Стоимость ${totalPrice}` ;
     
 });
 
    
-function disableScrolling(){
-    var x=window.scrollX;
-    var y=window.scrollY;
-    window.onscroll=function(){window.scrollTo(x, y);};
-}
+// function disableScrolling(){
+//     let x=window.scrollX;
+//     let y=window.scrollY;
+//     window.onscroll=function(){window.scrollTo(x, y);};
+// }
 
 
 
