@@ -163,15 +163,27 @@ addCart.addEventListener('click', function(){
         totalName += '\n' + el.name + '\n';
         
     }
+
+   disableScrolling();
     
    receiptOut.innerHTML= `Вы купили: \n ${totalName} \n Каллорийность ${totalKcall} \n Стоимость ${totalPrice}` ;
     
 });
 
    
+function disableScrolling(){
+    var x=window.scrollX;
+    var y=window.scrollY;
+    window.onscroll=function(){window.scrollTo(x, y);};
+}
+
+
+
+
+
 
 const lvlTimer = document.querySelector('.header__timer-extra');
-
+    
 
 function startLvlTimer(){
     if(lvlTimer.innerHTML < 50){
@@ -186,6 +198,12 @@ function startLvlTimer(){
 
 startLvlTimer();
 
+
+document.querySelector('.receipt__window-btn').onclick = function(){
+    
+    window.location.reload();
+
+};
 
 
 const viewBlocks = document.querySelectorAll('.main__product-info'),
