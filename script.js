@@ -166,7 +166,7 @@ addCart.addEventListener('click', function () {
 
     }
 
-    document.querySelector('body').style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
 
     document.body.addEventListener('touchmove', function (e) { e.preventDefault(); }); document.body.addEventListener('touchstart', function (e) { e.preventDefault(); });
 
@@ -183,7 +183,7 @@ addCart.addEventListener('click', function () {
    padding: 100px;
    `;
 
-    document.body.style.overflow = 'hidden';
+    
 
 });
 
@@ -256,8 +256,9 @@ document.querySelector('.receipt__window-btn').onclick = function () {
 
     if (totalPrice == 0) {
 
+        document.body.style.overflow = 'hidden';
         if (alertBlock.isConnected) {
-            
+
             receipt.removeChild(alertBlock);
             addAlertBlock(alertBlock);
 
